@@ -1,0 +1,54 @@
+.button {
+font-family:Arial;
+font-size:11px;
+font-weight:bold;
+display:inline;
+height:30px;
+border:1px solid #dcdcdc;
+background:#f2f2f2;
+padding-left: 10px;
+}
+body, html {
+height:100%
+}
+#wrapper {
+min-height:100%;
+position: relative;
+padding:0;
+margin:0;
+}
+.logo img {
+display:block;
+width: 269px;
+height:95px;
+margin:auto;
+margin-top: 80px;
+padding-top: 112px;
+}
+#icon {
+margin-top:10px;
+padding-left:15px;
+bottom:0;
+position:relative;
+}
+.searchbar {
+width:400px;
+height:28px;
+margin: auto;
+display:block;
+/*background-color:red;*/
+padding-top:10px;
+}
+#search {
+width:400px;
+height:28px;
+margin: auto;
+}
+#buttons {
+/*display:block;
+background-color:blue;*/
+height: 22px;
+width:250px;
+margin: auto;
+margin-top: 10px;
+}
