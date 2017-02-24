@@ -9,3 +9,5 @@ class Stud(models.Model):
     hall=models.CharField(max_length=10)
     room=models.CharField(max_length=10)
     stat=models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
