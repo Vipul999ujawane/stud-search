@@ -9,9 +9,9 @@
   <body>
     <div id="wrapper">
         <div id="body">
-            <div class="logo">
-				{% load staticfiles %}
-                <img src="{static logo.png}" />
+          <div class="logo">
+	    {%load static%}
+                <img src="{%static "logo.png" %}" />
             </div>
             <form action="/search/" method="get">
               <input type="text" name="q" class="searchbar">
