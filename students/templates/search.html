@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    {%if students%}
+    <p> Found {{students|length}} Studs{{students|pluralize}}</p>
+     {%for student in students%}
+    <ul>
+      <li>{{student.name}}</li>
+      <li>{{student.roll}}</li>
+      <li>{{student.hall}}</li>
+    </ul>
+    {%endfor%}
+    {%else%}
+    <p> No student found</p>
+    {%endif%}
+  </body>
+</html>
