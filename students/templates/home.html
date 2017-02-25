@@ -10,7 +10,8 @@
     <div id="wrapper">
         <div id="body">
             <div class="logo">
-                <img src="https://www.google.com/images/srpr/logo11w.png" />
+				{% load staticfiles %}
+                <img src="{static logo.png}" />
             </div>
             <form action="/search/" method="get">
               <input type="text" name="q" class="searchbar">
