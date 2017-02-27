@@ -2,7 +2,7 @@
 <html>
   <body>
     {%if students%}
-    <p> Found {{students|length}} Studs{{students|pluralize}}</p>
+    <p> Found {{students|length}} Student{{students|pluralize}}</p>
      {%for student in students%}
     <ul>
       <li>{{student.name}}</li>
