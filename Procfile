@@ -1,1 +1,1 @@
-web: gunicorn stud_search.wsgi:application --log-file--
+web: gunicorn stud_search.wsgi

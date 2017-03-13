@@ -7,5 +7,5 @@ def home(request):
 def search(request):
     if 'q' in request.GET:
         q=request.GET['q']
-        students=Stud.objects.filter(name__icontains=q)
+        students=Stud.objects.filter(name__icontains=q) or Stud.objects.filter(roll__icontains=q)
         return render(request,'search.html',{'students':students})

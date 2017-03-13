@@ -5,7 +5,7 @@
     <p> Found {{students|length}} Student{{students|pluralize}}</p>
      {%for student in students%}
     <ul>
-      <li>{{student.name}}</li>
+      <li><a href="https://erp.iitkgp.ernet.in/StudentPerformance/view_performance.jsp?rollno={{student.roll}}">{{student.name}}</a></li>
       <li>{{student.roll}}</li>
       <li>{{student.hall}}</li>
     </ul>
