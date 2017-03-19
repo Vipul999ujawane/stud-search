@@ -2,7 +2,7 @@
 <html>
   <body>
     {%if students%}
-    <p> Found {{students|length}} Student{{students|pluralize}}</p>
+    <p> Found {{students.paginator.count}} Student{{students|pluralize}}</p>
      {%for student in students%}
     <ul>
       <li><a href="https://erp.iitkgp.ernet.in/StudentPerformance/view_performance.jsp?rollno={{student.roll}}">{{student.name}}</a></li>
@@ -13,5 +13,21 @@
     {%else%}
     <p> No student found</p>
     {%endif%}
+
+    {% if students.has_other_pages %}
+  <ul class="pagination">
+    {% for i in students.paginator.page_range %}
+      {% if students.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}&q={{request.GET.q}}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
+
+    
   </body>
 </html>
