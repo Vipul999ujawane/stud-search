@@ -14,6 +14,7 @@ def search(request):
             page =1
         
         students=Stud.objects.filter(name__icontains=q) or Stud.objects.filter(roll__icontains=q)
+        students=students.order_by('roll')
         paginator=Paginator(students,10)
 
         try:
