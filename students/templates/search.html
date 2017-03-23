@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<title>{{request.GET.q}}</title>
   <body>
     {%if students%}
     <p> Found {{students.paginator.count}} Student{{students|pluralize}}</p>
@@ -28,6 +29,6 @@
 
 
 
-    
+
   </body>
 </html>
