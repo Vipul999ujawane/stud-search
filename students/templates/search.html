@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <title>{{request.GET.q}}</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <body>
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -13,32 +16,57 @@
 
 </script>
     {%if students%}
-    <p> Found {{students.paginator.count}} Student{{students|pluralize}}</p>
-     {%for student in students%}
+    <div class="row">
+    <div class="card blue-grey darken-1 col m6 s12">
+      <div class="card-content white-text row">
+        <a class="col m3 s6" href="/"><i  class="small white-text material-icons">chevron_leftchevron_left</i> </a>
+        <p class="col m3 s6">Found {{students.paginator.count}} Student{{students|pluralize}}</p>
+   </div>
+ </div>
+ </div>
+ {%for student in students%}
+     <div class="row">
+     <div class="card grey lighten-5 col m6 s12">
+       <div class="card-content white-text" ><a href="https://erp.iitkgp.ernet.in/StudentPerformance/view_performance.jsp?rollno={{student.roll}}">
     <ul>
-      <li><a href="https://erp.iitkgp.ernet.in/StudentPerformance/view_performance.jsp?rollno={{student.roll}}">{{student.name}}</a></li>
-      <li>{{student.roll}}</li>
-      <li>{{student.hall}}</li>
+      <li>Name: {{student.name}}</li>
+      <li>Roll: {{student.roll}}</li>
+      <li>Hall: {{student.hall}}</li>
     </ul>
+  </a>
+  </div>
+  </div>
+</div>
     {%endfor%}
     {%else%}
     <p> No student found</p>
     {%endif%}
 
     {% if students.has_other_pages %}
+    <div class="row">
+    <div class="card blue-grey darken-1 col m6 s12">
   <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
     {% for i in students.paginator.page_range %}
       {% if students.number == i %}
-        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        <li class="active white black-text"><span>{{ i }}</span></li>
       {% else %}
-        <li><a href="?page={{ i }}&q={{request.GET.q}}">{{ i }}</a></li>
+        <li class="white-text"><a href="?page={{ i }}&q={{request.GET.q}}">{{ i }}</a></li>
       {% endif %}
     {% endfor %}
+     <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
   </ul>
+</div>
+</div>
 {% endif %}
-
-
-
-
+<style>
+  .card {display: none;}
+</style>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    $(".card").fadeIn(1000);
+  })
+  </script>
 </html>
